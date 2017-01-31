@@ -261,17 +261,7 @@ var Finder = Module("finder", {
      */
     highlight: function () {
         this.setupFindbar();
-        let findbar = this.findbar;
-
-        let btn = findbar.getElement("highlight");
-
-        if (btn.checked) {
-            return;
-        }
-
-        btn.checked = true;
-
-        findbar._setHighlightTimeout();
+        this.findbar.toggleHighlight(true);
     },
 
     /**
