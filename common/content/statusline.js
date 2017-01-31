@@ -242,7 +242,7 @@ const StatusLine = Module("statusline", {
         statusline.addField("ssl", "The currently SSL status", "liberator-status-ssl",
             function updateSSLState (node, state) {
                 var className = "notSecure";
-                var tooltip = gNavigatorBundle.getString("identity.unknown.tooltip");
+                var tooltip = "";
                 if (!state) {
                     let securityUI = config.tabbrowser.securityUI;
                     if (securityUI)
@@ -268,7 +268,6 @@ const StatusLine = Module("statusline", {
                         className = "mixedActiveContent";
                     else
                         className = "mixedDisplayContent";
-                    tooltip = gNavigatorBundle.getString("identity.unknown.tooltip");
                 }
                 node.className = className;
                 node.setAttribute("tooltiptext", tooltip);
