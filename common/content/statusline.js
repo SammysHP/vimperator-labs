@@ -266,6 +266,15 @@ const StatusLine = Module("statusline", {
                     let iconcolor = bbBackgroundLuminance < 128 ? "white" : "black";
                     node.style.listStyleImage = node.style.listStyleImage.replace(/(#[\w-]+)(-white|-black)|(#[\w-]+)/, "$1$3-" + iconcolor);
 
+                    let img = node.firstChild; // Does not work, cannot acces XUL children
+                    if (iconcolor === "black" && node.style.listStyleImage.search(/(identity-icon|connection-mixed-.+-loaded)\.svg/)) {
+                        img.style.backgroundColor = "rgba(255, 255, 255, .7)";
+                        img.style.borderRadius = "100px";
+                    } else {
+                        img.style.backgroundColor = "";
+                        img.style.borderRadius = "";
+                    }
+
                     node.style.visibility = "visible";
 
                     var tooltip = conn_icon.tooltipText;
